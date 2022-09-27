@@ -6,7 +6,26 @@
     <!--
         Added the constraints for entity Product.
     -->
+
+
     <changeSet id="20220907004954-2" author="jhipster">
+        <!--
+     relationship OneToMany {
+     ProductOrder{orderItem} to OrderItem{order(code) required}
+     }
+     -->
+        <addForeignKeyConstraint baseColumnNames="order_id"
+                                 baseTableName="order_item"
+                                 constraintName="fk_order_item__order_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product_order"/>
+
+
+        <!--
+         relationship OneToMany {
+         ProductCategory{product} to Product{productCategory(name)}
+         }
+     -->
 
         <addForeignKeyConstraint baseColumnNames="product_category_id"
                                  baseTableName="product"

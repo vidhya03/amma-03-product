@@ -72,6 +72,9 @@ public class SecurityConfiguration {
                 .and()
             .and()
                 .oauth2Client();
+
+        http.headers().frameOptions().disable();
+
         return http.build();
         // @formatter:on
     }
